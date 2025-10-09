@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Hunting Comm",
+    "slug": "hunting-comm-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "platforms": ["ios", "android"],
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2E7D32"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.huntingcomm.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses location to share your position with your hunting group for safety purposes.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app uses background location to keep your hunting group updated on your position for safety."
+      }
+    },
+    "android": {
+      "package": "com.huntingcomm.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2E7D32"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
+    }
+  }
+}
