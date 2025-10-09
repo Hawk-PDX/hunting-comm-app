@@ -13,7 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = __DEV__ ? 'http://10.0.0.173:5001/api' : 'YOUR_PRODUCTION_API_URL';
+const API_URL = __DEV__ ? 'http://10.0.0.173:5001/api' : 'https://hunting-comm-api.herokuapp.com/api';
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);

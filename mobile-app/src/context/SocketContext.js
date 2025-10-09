@@ -17,7 +17,7 @@ export const SocketProvider = ({ children }) => {
   const [connected, setConnected] = useState(false);
   const { user, token } = useAuth();
 
-  const SOCKET_URL = __DEV__ ? 'http://10.0.0.173:5001' : 'YOUR_PRODUCTION_URL';
+  const SOCKET_URL = __DEV__ ? 'http://10.0.0.173:5001' : 'https://hunting-comm-api.herokuapp.com';
 
   useEffect(() => {
     if (user && token) {
