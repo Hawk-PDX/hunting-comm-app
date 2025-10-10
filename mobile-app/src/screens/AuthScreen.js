@@ -12,8 +12,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
-
-const API_URL = __DEV__ ? 'http://10.0.0.173:5001/api' : 'https://hunting-comm-api.herokuapp.com/api';
+import { getApiConfig } from '../config/api';
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);
@@ -46,6 +45,7 @@ export default function AuthScreen() {
 
     setLoading(true);
     try {
+      const { API_URL } = await getApiConfig();
       const response = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
@@ -69,26 +69,30 @@ export default function AuthScreen() {
     }
   };
 
-  const handleRegister = async () => {
+  const validateRegisterForm = () => {
     const { username, email, password, confirmPassword, fullName } = registerForm;
-
+    
     if (!username || !email || !password || !fullName) {
       Alert.alert('Error', 'Please fill in all required fields');
-      return;
+      return false;
     }
-
     if (password !== confirmPassword) {
       Alert.alert('Error', 'Passwords do not match');
-      return;
+      return false;
     }
-
     if (password.length < 6) {
       Alert.alert('Error', 'Password must be at least 6 characters');
-      return;
+      return false;
     }
+    return true;
+  };
+
+  const handleRegister = async () => {
+    if (!validateRegisterForm()) return;
 
     setLoading(true);
     try {
+      const { API_URL } = await getApiConfig();
       const response = await fetch(`${API_URL}/auth/register`, {
         method: 'POST',
         headers: {

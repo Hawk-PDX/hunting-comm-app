@@ -68,6 +68,10 @@ Temporary Items
 logs
 *.log
 
+# Process files
+*.pid
+.*_pid
+
 # Database
 *.db
 *.sqlite
@@ -88,3 +92,7 @@ ehthumbs.db
 
 # History folder
 .history/
+
+# Cache directories
+.metro-cache/
+.cache/

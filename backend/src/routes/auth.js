@@ -4,19 +4,17 @@ const jwt = require('jsonwebtoken');
 const { query } = require('../config/database');
 const router = express.Router();
 
-// Register new user (temporary version without database)
 router.post('/register', async (req, res) => {
   try {
     const { username, email, password, fullName, phoneNumber, emergencyContactName, emergencyContactPhone } = req.body;
 
-    // Validation
     if (!username || !email || !password || !fullName) {
       return res.status(400).json({ message: 'Required fields missing' });
     }
 
-    console.log('📝 Registration attempt for:', username, email);
+    console.log('Registration attempt:', username);
 
-    // For demo purposes, create a mock user without database
+    // Demo mode - create mock user
     const mockUser = {
       id: 'demo-user-' + Date.now(),
       username,
@@ -25,14 +23,13 @@ router.post('/register', async (req, res) => {
       created_at: new Date().toISOString()
     };
 
-    // Generate JWT token
     const token = jwt.sign(
       { userId: mockUser.id, username: mockUser.username },
       process.env.JWT_SECRET || 'your-secret-key',
       { expiresIn: '7d' }
     );
 
-    console.log('✅ Registration successful for:', username);
+    console.log('Registration successful:', username);
 
     res.status(201).json({
       message: 'User registered successfully (Demo Mode)',
@@ -51,12 +48,10 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login user
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Validation
     if (!email || !password) {
       return res.status(400).json({ message: 'Email and password are required' });
     }

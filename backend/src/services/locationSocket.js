@@ -97,7 +97,7 @@ module.exports = (socket, io) => {
         });
       }
 
-      console.log(`📍 Location updated for user ${user.username} in group ${groupId}`);
+      console.log(`Location updated: ${user.username} in group ${groupId}`);
 
     } catch (error) {
       console.error('Location update error:', error);
@@ -181,7 +181,7 @@ module.exports = (socket, io) => {
         message: `Joined group ${groupId} successfully` 
       });
 
-      console.log(`👥 User ${userId} joined group ${groupId} room`);
+      console.log(`User ${userId} joined group ${groupId}`);
 
     } catch (error) {
       console.error('Join group error:', error);
@@ -208,7 +208,7 @@ module.exports = (socket, io) => {
         message: `Left group ${groupId}` 
       });
 
-      console.log(`👋 User ${userId} left group ${groupId} room`);
+      console.log(`User ${userId} left group ${groupId}`);
 
     } catch (error) {
       console.error('Leave group error:', error);

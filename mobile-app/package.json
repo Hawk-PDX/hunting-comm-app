@@ -1,9 +1,11 @@
 {
-  "name": "mobile-app",
+  "name": "hunting-comm-mobile",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "expo start",
+    "start-tunnel": "expo start --tunnel",
+    "start-lan": "expo start --lan",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "reset-cache": "expo start --clear"
@@ -13,7 +15,8 @@
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-navigation/bottom-tabs": "^7.4.8",
     "@react-navigation/native": "^7.1.18",
-    "expo": "~54.0.12",
+    "expo": "54.0.13",
+    "expo-font": "~14.0.9",
     "expo-location": "^19.0.7",
     "expo-notifications": "^0.32.12",
     "expo-status-bar": "~3.0.8",

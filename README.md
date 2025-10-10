@@ -1,22 +1,22 @@
 # Hunting Communication App
 
-A React Native and Node.js application designed for hunters to communicate their locations, send messages, and manage emergency situations while in remote hunting areas with limited cellular connectivity.
+A React Native and Node.js application for hunters to communicate locations, send messages, and manage emergency situations in remote areas with limited cellular connectivity.
 
 ## 🎯 Features
 
 ### Core Features
-- **Real-time Location Sharing**: Share GPS coordinates with hunting group members
-- **Emergency Alerts**: Send distress signals with location to all group members
-- **Group Messaging**: Text communication between hunting party members
-- **Low-connectivity Optimized**: Designed to work with minimal cellular data
-- **Offline-first Architecture**: Store data locally and sync when connection available
-- **Battery Optimization**: Minimal battery drain for extended hunting trips
+- **Real-time Location Sharing**: Share GPS coordinates with group members
+- **Emergency Alerts**: Send distress signals with location data
+- **Group Messaging**: Text communication between hunters
+- **Low-connectivity Optimized**: Works with minimal cellular data
+- **Offline-first**: Local storage with sync when connected
+- **Battery Optimized**: Minimal drain for extended trips
 
 ### Safety Features
-- **Emergency Contact Integration**: Store emergency contact information
-- **Geofencing**: Set up safety zones with entry/exit alerts
-- **Check-in System**: Regular status updates with minimal data usage
-- **Location History**: Track member movements over time
+- **Emergency Contacts**: Store and notify emergency contacts
+- **Geofencing**: Safety zones with entry/exit alerts
+- **Check-in System**: Regular status updates
+- **Location History**: Track member movements
 
 ## 🏗 Tech Stack
 
@@ -70,15 +70,28 @@ hunting-comm-app/
 
 ## 🚀 Getting Started
 
+### Quick Start
+
+**Automated Setup (Recommended)**
+```bash
+./start-app.sh
+```
+
+Then in a new terminal:
+```bash
+cd mobile-app && npx expo start --tunnel
+```
+
 ### Prerequisites
 
 - **Node.js** (v18 or higher)
-- **npm** or **yarn**
-- **PostgreSQL** (v12 or higher)
-- **Expo CLI**: `npm install -g expo-cli`
-- **iOS Simulator** (for iOS development) or **Android Studio** (for Android development)
+- **PostgreSQL** (v12 or higher)  
+- **Expo CLI**: `npm install -g @expo/cli`
+- **iOS Simulator** or **Android Studio** (optional)
 
-### Database Setup
+### Manual Setup
+
+#### Database Setup
 
 1. Install PostgreSQL and create a new database:
 ```sql

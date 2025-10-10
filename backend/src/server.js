@@ -93,9 +93,11 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => {
-  console.log(`🚀 Hunting Communication Server running on port ${PORT}`);
-  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`Local: http://localhost:${PORT}`);
+  console.log(`Network: http://10.0.0.173:${PORT}`);
 });
 
 module.exports = { app, server, io };

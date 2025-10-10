@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import io from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import { getApiConfig } from '../config/api';
 
 const SocketContext = createContext();
 
@@ -17,11 +18,9 @@ export const SocketProvider = ({ children }) => {
   const [connected, setConnected] = useState(false);
   const { user, token } = useAuth();
 
-  const SOCKET_URL = __DEV__ ? 'http://10.0.0.173:5001' : 'https://hunting-comm-api.herokuapp.com';
-
   useEffect(() => {
     if (user && token) {
-      initializeSocket();
+      initializeSocket().catch(console.error);
     }
 
     return () => {
@@ -31,7 +30,8 @@ export const SocketProvider = ({ children }) => {
     };
   }, [user, token]);
 
-  const initializeSocket = () => {
+  const initializeSocket = async () => {
+    const { SOCKET_URL } = await getApiConfig();
     const newSocket = io(SOCKET_URL, {
       auth: {
         token: token,
@@ -40,12 +40,12 @@ export const SocketProvider = ({ children }) => {
     });
 
     newSocket.on('connect', () => {
-      console.log('✅ Connected to server');
+      console.log('Connected to server');
       setConnected(true);
     });
 
     newSocket.on('disconnect', () => {
-      console.log('❌ Disconnected from server');
+      console.log('Disconnected from server');
       setConnected(false);
     });
 
