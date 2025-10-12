@@ -4,17 +4,31 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Database connection configuration
-const dbConfig = {
-  user: process.env.DB_USER || 'postgres',
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || 'hunting_comm',
-  password: process.env.DB_PASSWORD || '',
-  port: process.env.DB_PORT || 5432,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
-  max: 20, // Maximum number of clients in the pool
-  idleTimeoutMillis: 30000, // How long a client is allowed to remain idle
-  connectionTimeoutMillis: 2000, // How long to wait when connecting a new client
-};
+let dbConfig;
+
+if (process.env.DATABASE_URL) {
+  // Use DATABASE_URL if provided (e.g., by Render)
+  dbConfig = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+    max: 20,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 2000,
+  };
+} else {
+  // Fallback to individual environment variables
+  dbConfig = {
+    user: process.env.DB_USER || 'postgres',
+    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_NAME || 'hunting_comm',
+    password: process.env.DB_PASSWORD || '',
+    port: process.env.DB_PORT || 5432,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+    max: 20, // Maximum number of clients in the pool
+    idleTimeoutMillis: 30000, // How long a client is allowed to remain idle
+    connectionTimeoutMillis: 2000, // How long to wait when connecting a new client
+  };
+}
 
 const pool = new Pool(dbConfig);
 
