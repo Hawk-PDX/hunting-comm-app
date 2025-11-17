@@ -96,3 +96,10 @@ ehthumbs.db
 # Cache directories
 .metro-cache/
 .cache/
+
+# TODO file
+TODO.md
+
+# Personal files
+*.pdf
+*.dmg
