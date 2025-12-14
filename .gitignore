@@ -97,9 +97,6 @@ ehthumbs.db
 .metro-cache/
 .cache/
 
-# TODO file
-TODO.md
-
 # Personal files
 *.pdf
 *.dmg
