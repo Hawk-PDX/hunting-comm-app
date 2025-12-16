@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function GroupScreen() {
@@ -11,10 +11,15 @@ export default function GroupScreen() {
         <Text style={styles.placeholderSubtext}>
           Group management and member list coming soon
         </Text>
+        <Button
+          title="+ Add group member"
+          onPress={addToGroup}
+        />
       </View>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

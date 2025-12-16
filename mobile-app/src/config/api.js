@@ -31,7 +31,7 @@ export const getApiConfig = async () => {
   }
 
   return {
-    API_URL: 'https://your-render-app-name.onrender.com/api',
-    SOCKET_URL: 'https://your-render-app-name.onrender.com'
+    API_URL: `${baseUrl}/api`,
+    SOCKET_URL: 'https://hunting-comm-backend.onrender.com'
   };
 };

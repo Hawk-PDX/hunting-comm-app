@@ -29,7 +29,7 @@ const locationSocket = require('./services/locationSocket');
 const messageSocket = require('./services/messageSocket');
 const emergencySocket = require('./services/emergencySocket');
 
-// Middleware
+// Middleware -- plan to convert to supabase
 app.use(helmet());
 app.use(cors({
   origin: "*",
@@ -55,8 +55,8 @@ app.use('/api/emergency', emergencyRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.status(200).json({ 
-    status: 'OK', 
+  res.status(200).json({
+    status: 'OK',
     timestamp: new Date().toISOString(),
     uptime: process.uptime()
   });
@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
 // Error handling middleware
 app.use((error, req, res, next) => {
   console.error('Error:', error);
-  res.status(500).json({ 
+  res.status(500).json({
     message: 'Internal server error',
     error: process.env.NODE_ENV === 'development' ? error.message : 'Something went wrong'
   });

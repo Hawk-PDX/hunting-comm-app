@@ -71,7 +71,7 @@ export default function AuthScreen() {
 
   const validateRegisterForm = () => {
     const { username, email, password, confirmPassword, fullName } = registerForm;
-    
+
     if (!username || !email || !password || !fullName) {
       Alert.alert('Error', 'Please fill in all required fields');
       return false;
@@ -124,8 +124,8 @@ export default function AuthScreen() {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.header}>
           <Ionicons name="location" size={60} color="#fff" />
-          <Text style={styles.title}>Hunting Comm</Text>
-          <Text style={styles.subtitle}>Stay Safe, Stay Connected</Text>
+          <Text style={styles.title}>PDXplore</Text>
+          <Text style={styles.subtitle}>Stay Safe, Stay Connected. Never Stop Exploring</Text>
         </View>
 
         <View style={styles.formContainer}>

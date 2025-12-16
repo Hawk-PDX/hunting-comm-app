@@ -1,4 +1,10 @@
-# Hunting Communication App
+# PDXplore
+**Stay Safe, Stay Connected. Never Stop Exploring.**
+
+Under construction:
+Open to collaboration opportunities... Designer, DevOps, etc. 
+Hoping to ship a final product by September, 2026.
+Contact me with any questions/concerns, [garrett@rosecitydev.tech](garrett@rosecitydev.tech).
 
 ## Overview
 
@@ -37,7 +43,10 @@ Offline-First Design: Core functionality works without internet, syncing when co
 
 Here are some screenshots of the mobile application:
 
-- ![Screenshot 1](assets/screenshots/image0.jpeg)
-- ![Screenshot 2](assets/screenshots/image1.jpeg)
-- ![Screenshot 3](assets/screenshots/image2.jpeg)
-- ![Screenshot 4](assets/screenshots/image3.jpeg)
+<p align="center">
+  <img src="assets/screenshots/image0.jpeg" width="300" />
+  <img src="assets/screenshots/image1.jpeg" width="300" />
+  <img src="assets/screenshots/image2.jpeg" width="300" />
+  <img src="assets/screenshots/image3.jpeg" width="300" />
+</p>
+
